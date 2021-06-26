@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        display: grid;
+        justify-content: center;
+    }
+</style>
+
+<body>
+    <h1> Генератор случайных чисел </h1>
+
+    <button onclick="ran()"> Кнопка </button>
+    <div id="out1"> Сгенерировано: </div>
+    <div id="out2"> Минимальное: </div>
+    <div id="out3"> Максимальное: </div>
+    <div id="out4"> Среднее арифметическое: </div>
+    <div id="out5"> Сумма чисел: </div>
+    <div id="out6"> Произведение чисел: </div>
+
+    <script>
+
+        function ran() {
+            document.getElementById('out1').innerHTML = "Сгенерировано: ";
+            document.getElementById('out2').innerHTML = "Минимальное: ";
+            document.getElementById('out3').innerHTML = "Макстмальное: ";
+            document.getElementById('out4').innerHTML = "Среднее арифметическое: ";
+            document.getElementById('out5').innerHTML = "Сумма чисел: ";
+            document.getElementById('out6').innerHTML = "Произведение чисел: ";
+
+            let random = [];
+            let sum = 0;
+            let pr = 1;
+            for (let i = 0; i < 10; i++) {
+
+                random[i] = Math.round(Math.random() * 20) - 10;
+                sum += random[i];
+                pr *= random[i];
+            }
+            document.getElementById('out1').innerHTML += random
+
+            document.getElementById('out2').innerHTML += Math.min.apply(null, random);
+            document.getElementById('out3').innerHTML += Math.max.apply(null, random);
+            document.getElementById('out4').innerHTML += sum / random.length;
+            document.getElementById('out5').innerHTML += sum;
+            document.getElementById('out6').innerHTML += pr;
+        }
+
+    </script>
+</body>
+
+</html>

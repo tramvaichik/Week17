@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        display: grid;
+        justify-content: center;
+        padding: 5%;
+        margin: 5%;
+    }
+</style>
+
+
+<body>
+    <label for="Fullname" class=""> ФИО </label>
+    <input type="text" id="Fullname">
+    <br>
+
+    <label for="name" class=""> Имя</label>
+    <input type="text" id="name1">
+    <br>
+
+    <label for="name" class=""> Фамилия</label>
+    <input type="text" id="name2">
+    <br>
+
+    <label for="name" class=""> Отчество </label>
+    <input type="text" id="name3">
+    <br>
+
+    <button onclick="Fullname()"> кнопка </button>
+
+
+    <script>
+
+        function Fullname() {
+            let text = document.getElementById("Fullname").value.trim();
+            let array = text.split(" ");
+
+            if (array.length == 3) {
+                for (let i = 0; i < array.length; i++) {
+                    array[i] = array[i].charAt(0).toUpperCase() + array[i].slice(1).toLowerCase();
+                }
+                document.getElementById('name1').value = array[1];
+                document.getElementById('name2').value = array[0];
+                document.getElementById('name3').value = array[2];
+            } else {
+                alert("Не полностью заполнено поле!")
+            }
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>

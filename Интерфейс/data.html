@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    body {
+
+        display: grid;
+        justify-content: center;
+    }
+
+
+
+    .btn {
+        display: flex;
+        justify-content: center;
+    }
+
+    button {
+        display: flex;
+        justify-content: center;
+        color: black;
+        font-size: 125%;
+        font-weight: 700;
+        text-decoration: none;
+        user-select: none;
+        padding: .25em .5em;
+        outline: none;
+        border: 1px solid rgb(250, 172, 17);
+        border-radius: 9px;
+        background: rgb(255, 212, 3) linear-gradient(rgb(255, 212, 3), rgb(248, 157, 23));
+
+    }
+</style>
+
+<body>
+    <h1> Дата </h1>
+    <div class="btn">
+        <button onclick="a()"> Кнопка </button>
+    </div>
+
+
+    <script>
+        function a() {
+            alert(data(new Date(new Date - 86400 * 1000)));
+        }
+
+        function data(data) {
+
+            let sec = new Date();
+
+            let sr = sec - data;
+
+            if (sr < 1000) {
+                return ("прямо сейчас");
+            } else if (sr < 60000) {
+                return (Math.round(sr / 1000) + " сек. назад");
+            } else if (sr < 60000 * 60) {
+                return (Math.round(sr / 60000) + " мин. назад")
+            } else {
+                return (data.getDate() + "." + Number(data.getMonth() + 1) + "." + data.getFullYear() % 100 + " " + data.getHours() + ":" + data.getMinutes())
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

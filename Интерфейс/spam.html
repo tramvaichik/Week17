@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        border: 3px solid darkblue;
+        display: grid;
+    }
+
+    div {
+        display: grid;
+
+    }
+
+    .one {
+        border-bottom: 2px dashed navy;
+        width: 25%;
+        height: 29%;
+        margin: 3%;
+    }
+
+    .two {
+        border-bottom: 2px dashed navy;
+        width: 35%;
+        height: 39%;
+        margin: 3%;
+    }
+
+    .three {
+        border-bottom: 2px dashed navy;
+
+        margin: 3%;
+    }
+
+    .btn {
+        display: flex;
+        justify-content: center;
+    }
+
+    button {
+        display: flex;
+        justify-content: center;
+        color: black;
+        font-size: 125%;
+        font-weight: 700;
+        text-decoration: none;
+        user-select: none;
+        padding: .25em .5em;
+        outline: none;
+        border: 1px solid rgb(250, 172, 17);
+        border-radius: 7px;
+        background: rgb(255, 212, 3) linear-gradient(rgb(255, 212, 3), rgb(248, 157, 23));
+        width: 50%;
+    }
+</style>
+
+<body>
+    <div>
+        <textarea class="one" rows="5" id="one">nick</textarea>
+        <button onclick="saveNick()"> Save </button>
+    </div>
+    <div>
+        <textarea class="two" rows="10" id="two">comment</textarea>
+    </div>
+    <div>
+        <textarea class="three" rows="7" id="three"></textarea>
+    </div>
+    <div class="btn">
+        <button onclick="Cmt()"> Send message </button>
+    </div>
+
+    <script>
+        function Cmt() {
+            let nick = document.getElementById("one").value;
+            let comment = document.getElementById("two").value;
+            comment = checkSpam(comment);
+            document.getElementById("three").value += nick + ": " + comment + ". ";
+        }
+        function saveNick() {
+            let nick = document.getElementById("one").value;
+            let comment = document.getElementById("two").value;
+
+            localStorage.setItem(nick, comment);
+            alert("Saved");
+        }
+
+        function checkSpam(str) {
+            str = str.replace(/viagra/ig, "***");
+            str = str.replace(/xxx/ig, "***");
+
+            return str;
+        }
+
+
+    </script>
+
+</body>
+
+</html>
